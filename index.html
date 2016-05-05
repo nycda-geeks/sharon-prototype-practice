@@ -1,31 +1,27 @@
 <script>
 
 function EmailList(name) {
-	var instance = {
-		name : name,
-		mailinglist : "BSSA students",
-		list : [],
-		addEmail : function(email) {
-			this.list.push(email);
-		},
-		sendEmailToAll : function(emailtext) {
-			console.log("Email content: " + emailtext);
-			console.log("Sending email to: " + this.list);
-		}
-	}
-	return instance;
+	this.name = name;
+	this.list = [];
 }
 
+function addEmail(email) {
+		
+		EmailList.list += email;
+}
+
+function sendEmailToAll(emailtext) {
+			console.log("Email content: " + emailtext);
+			console.log("Sending email to: " + EmailList.list);
+	}
+
 var subscribers = new EmailList("subscribers");
-subscribers.addEmail("a@b.nl");
-subscribers.addEmail("b@b.nl");
-subscribers.addEmail("c@b.nl");
+addEmail("a@b.nl ");
+addEmail("b@b.nl ");
+addEmail("c@b.nl ");
 
 
 
-var goldMembers = new EmailList("chantal");
-goldMembers.addEmail("c@d.nl");
-
-subscribers.sendEmailToAll("Hi all, you are great!");
+sendEmailToAll("Hi all, you are great!");
 
 </script>

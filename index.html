@@ -5,23 +5,21 @@ function EmailList(name) {
 	this.list = [];
 }
 
-function addEmail(email) {
-		
-		EmailList.list += email;
+EmailList.prototype.addEmail = function(email) {
+		this.list.push(email);
 }
 
-function sendEmailToAll(emailtext) {
+EmailList.prototype.sendEmailToAll = function(emailtext) {
 			console.log("Email content: " + emailtext);
-			console.log("Sending email to: " + EmailList.list);
 	}
 
 var subscribers = new EmailList("subscribers");
-addEmail("a@b.nl ");
-addEmail("b@b.nl ");
-addEmail("c@b.nl ");
 
+subscribers.addEmail("a@b.nl ");
+subscribers.addEmail("b@b.nl ");
+subscribers.addEmail("c@b.nl ");
 
-
-sendEmailToAll("Hi all, you are great!");
+subscribers.sendEmailToAll("Hi all, you are great!");
+console.log("Sending email to: " + subscribers.list);
 
 </script>
